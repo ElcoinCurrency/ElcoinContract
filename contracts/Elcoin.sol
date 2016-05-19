@@ -233,7 +233,7 @@ contract Elcoin is AmbiEnabled, MetaCoinInterface {
 
     function updateRefundGas() checkAccess("currencyOwner") returns (uint) {
         uint startGas = msg.gas;
-        uint refund = (startGas - msg.gas + refundGas) * tx.gasprice; // just to simulate calculations, dunno if optimizer will remove this.
+        uint refund = (startGas - msg.gas + refundGas) * tx.gasprice;
         if (!_refund(1)) {
             return 0;
         }
